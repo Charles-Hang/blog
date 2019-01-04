@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "typeRoots": ["./typings", "./node_modules/*"],
+    "baseUrl": ".",
+    "outDir": "build/dist",
+    "module": "esnext",
+    "target": "es6",
+    "lib": [
+      "es6",
+      "dom",
+      "es2017"
+    ],
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "strictNullChecks": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "config"
+  ]
+}
