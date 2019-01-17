@@ -2,6 +2,8 @@ import Http from '../utils/http';
 import { Article } from '../models/article';
 import { Tag } from '../models/tag';
 import { Category } from '../models/category';
+import { Sign } from '../models/sign';
+import { Mood } from '../models/mood';
 import apiConfig from './config';
 
 const http = new Http({
@@ -22,6 +24,10 @@ interface ArticleDetailResponse {
     categories: Category[];
   };
 }
+type CategoryResponse = Category[];
+type TagResponse = Tag[];
+type SignResponse = Sign;
+type MoodResponse = Mood;
 class API {
   /**
    * @description 获取文章列表
@@ -78,6 +84,38 @@ class API {
         id,
       },
     });
+  }
+
+  /**
+   * @description 获取分类信息
+   * @returns
+   */
+  async getCategories() {
+    return http.get<CategoryResponse>(`${apiConfig.CATEGORIES}`);
+  }
+
+  /**
+   * @description 获取标签信息
+   * @returns
+   */
+  async getTags() {
+    return http.get<TagResponse>(`${apiConfig.TAGS}`);
+  }
+
+  /**
+   * @description 获取签名
+   * @returns
+   */
+  async getSign() {
+    return http.get<SignResponse>(`${apiConfig.SIGN}`);
+  }
+
+  /**
+   * @description 获取心情
+   * @returns
+   */
+  async getMood() {
+    return http.get<MoodResponse>(`${apiConfig.MOOD}`);
   }
 }
 export default new API();
